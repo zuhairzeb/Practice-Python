@@ -1,13 +1,14 @@
 while True:
     # name
-    name = input("Please enter your name: ").strip()
+    name = input("Please enter your name: ")  
     
     # Validate the name input
     if not name.isalpha():
         print("Error: Name should only contain letters.")
         continue  
+    
     # age
-    age_input = input("Please enter your age: ").strip()
+    age_input = input("Please enter your age: ")
 
     # Validate the age input
     if not age_input.isdigit():
