@@ -1,53 +1,49 @@
-#
-# ? Note that an any input entered by the user is a string unless set to a different DataType explicitly.
-name: str = input("What is your name?")
-# age: int = int(input("How old are you?"))
-age = input("How old are you?")
+# Get the user's name and age
+name = input("What is your name? ")
+age = input("How old are you? ")
 
-# ? Check if name is string of alphabets name.isalpha()
-# ? Check if age is number age.isdigit()
+# Convert age to an integer for comparison
+age = int(age)
 
-# # ? Simple if-else statement
-if int(age) >= 18:
-    print("You are an adult.")
+# Check if the name contains only letters
+if name.isalpha():
+    print(f"Hello, {name}!")
+else:
+    print("The name should only contain letters.")
+
+# Check if the age is a number and categorize the user
+if age >= 18:
+    if age > 60:
+        print("You are a senior citizen.")
+    else:
+        print("You are an adult.")
 else:
     print("You are not an adult.")
 
-# # ? Simple if-else statement
-# if age >= 18:
-#     print("You are an adult.")
-# else:
-#     print("You are not an adult.")
+# Another way to categorize the user using 'elif'
+if age < 18:
+    print("You are a minor.")
+elif age < 60:
+    print("You are an adult.")
+else:
+    print("You are a senior citizen.")
 
-# # ? Nested if-else statement
-# if age >= 18:
-#     if age > 60:
-#         print("You are a senior citizen.")
-#     else:
-#         print("You are an adult.")
+# Using match-case (similar to switch) to categorize the user
+match age:
+    case 17:
+        print(f"{name}, you are a minor.")
+    case 40:
+        print(f"{name}, you are an adult.")
+    case 65:
+        print(f"{name}, you are a senior citizen.")
+    case _:
+        print(f"{name}, you are in an undefined category.")
 
-# ? elif statement:
-# if age < 60:
-#     print("You are a senior citizen.")
-# elif age >= 18:
-#     print("You are an adult.")
-
-# ? match-case (switch) statement:
-# match age:
-#     case 17:
-#         print(f"{name} you are a minor.")
-#     case 40:
-#         print(f"{name} you are an adult.")
-#     case 65:
-#         print(f"{name} you are a senior citizen.")
-#     case _:
-#         print(f"{name} you are an alien")
-
-# ? match-case (switch) statement:
-# match age:
-#     case _ if age < 18:
-#         print(f"{name} you are a minor.")
-#     case _ if age >= 18 and age < 60:
-#         print(f"{name} you are an adult.")
-#     case _:
-#         print(f"{name} you are a senior citizen.")
+# More flexible match-case statement
+match age:
+    case _ if age < 18:
+        print(f"{name}, you are a minor.")
+    case _ if age < 60:
+        print(f"{name}, you are an adult.")
+    case _:
+        print(f"{name}, you are a senior citizen.")
